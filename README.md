@@ -9,8 +9,8 @@
 
 # Python FastAPI Template
 
-A template for a Python FastAPI service:
-- [x] [uv](https://docs.astral.sh/uv/getting-started/) for dependency management
+- A template for a Python FastAPI service:
+- [x] [Poetry](https://python-poetry.org/docs/) for dependency management
 - [x] [FastAPI](https://fastapi.tiangolo.com/) for building the API
 - [x] [Devcontainer](https://code.visualstudio.com/docs/devcontainers/tutorial) for development environment
 - [x] [Docker](https://www.docker.com/) for containerization
@@ -22,25 +22,29 @@ A template for a Python FastAPI service:
 
 ## Build and run locally
 
-Install `uv` and `python3.12`
+Install Poetry and `python3.12`
 ```
-curl -LsSf https://astral.sh/uv/install.sh | sh
-uv python install 3.12
+# Install Poetry (official installer)
+curl -sSL https://install.python-poetry.org | python3 -
+# Verify Poetry is installed
+poetry --version
+# (Optional) Ensure Python 3.12 is available
+python3.12 --version
 ```
 
 Then install dependencies
 ```
-uv sync --frozen
+poetry install
 ```
 
 Run locally
 ```
-uv run uvicorn app.main:app --port 8000 --reload
+poetry run uvicorn app.main:app --port 8000 --reload
 ```
 
 ## Run tests
 ```
-uv run pytest
+poetry run pytest
 ```
 
 ## Build and run using Docker
